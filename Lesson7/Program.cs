@@ -30,7 +30,7 @@ string Analyse(string str)
 }
 Console.WriteLine(Analyse("Test_25%Asd6789&&"));
 
-string Sort(string str) {
+string SortStr(string str) {
 
     bool wasChanges = false;
     char[] arr;
@@ -58,4 +58,36 @@ string Sort(string str) {
    
     return str;
 }
-Console.WriteLine(Sort("hellocba"));
+Console.WriteLine(SortStr("hellocba"));
+
+string SortStr1(string str)
+{
+    char[] arr = str.ToCharArray(0, str.Length);     
+    Array.Sort(arr);
+    str = new(arr);
+
+    return str;
+}
+Console.WriteLine(SortStr1("hellocba"));
+
+string Duplicate(string str)
+{    
+    string res = "";
+    int k = 0;
+    str = str.ToLower();
+    for (int i = 0; i < str.Length - 1; i++)
+    {
+        if (str[i] == ' ') continue;
+        string temp = str[i].ToString();
+        int indStart = str.IndexOf(temp);
+        int indEnd = str.LastIndexOf(temp);
+        if (indStart != indEnd && !res.Contains(temp))
+        {
+            res=res.Insert(k, temp);
+            k++;
+        }
+    }
+
+    return res;
+}
+Console.WriteLine(Duplicate("Hello and hi"));
