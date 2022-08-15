@@ -91,3 +91,4 @@ string Duplicate(string str)
     return res;
 }
 Console.WriteLine(Duplicate("Hello and hi"));
+//checked
